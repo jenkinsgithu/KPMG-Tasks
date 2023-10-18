@@ -1,0 +1,30 @@
+﻿Challenge #2
+
+
+We need to write code that will query the metadata of an instance within AWS or Azure or GCP
+and provide a json formatted output.
+The choice of language and implementation is up to you.
+Bonus Points
+The code allows for a particular data key to be retrieved individually
+
+
+Solution : 
+
+
+#!/bin/bash
+
+
+# Define the base URL for AWS instance metadata
+metadata_url = "http://169.254.169.254/latest/meta-data/"
+
+
+# Function to retrieve and print metadata
+get_metadata() {
+  Key = "$1"
+  metadata_value = $(curl -s "${metadata_url}${key}")
+  echo "{\"${key}\": \"${metadata_value}\"}"
+}
+
+
+# Example: Get the instance ID
+get_metadata "instance-id"
