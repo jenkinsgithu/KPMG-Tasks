@@ -24,7 +24,3 @@ get_metadata() {
   metadata_value = $(curl -s "${metadata_url}${key}")
   echo "{\"${key}\": \"${metadata_value}\"}"
 }
-
-
-# Example: Get the instance ID
-get_metadata "instance-id"
